@@ -655,8 +655,17 @@
 
 <script>
 var muted = false;
+var started = false;
 var audio = document.getElementById('bgAudio');
 audio.volume = 0.35;
+
+document.addEventListener('click', function() {
+  if (!started) {
+    audio.play();
+    started = true;
+  }
+}, { once: false });
+
 function toggleMute() {
   muted = !muted;
   audio.muted = muted;
